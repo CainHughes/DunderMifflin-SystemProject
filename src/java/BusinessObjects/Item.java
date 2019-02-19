@@ -85,13 +85,13 @@ public class Item {
             String sql = "SELECT * from Electronics WHERE ID = "+ID+"";
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-            ItemID = rs.getString(1);
-            ItemName = rs.getString(2);
-            Stock = rs.getInt(3);
-            Price = rs.getDouble(4);
-            Manu = rs.getString(5);
-            ModelNum = rs.getString(6);
-            Description = rs.getString(7);
+            ItemID = rs.getString("ID");
+            ItemName = rs.getString("ItemName");
+            Stock = rs.getInt("Stock");
+            Price = rs.getDouble("Price");
+            Manu = rs.getString("Manufacturer");
+            ModelNum = rs.getString("ModelNumber");
+            Description = rs.getString("Description");
             con.close();
         }
         catch(Exception e){
@@ -171,13 +171,13 @@ public class Item {
             String sql = "SELECT * from Decoration WHERE ID = "+ID+"";
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-            ItemID = rs.getString(1);
-            ItemName = rs.getString(2);
-            Stock = rs.getInt(3);
-            Price = rs.getDouble(4);
-            Manu = rs.getString(5);
-            ModelNum = rs.getString(6);
-            Description = rs.getString(7);
+            ItemID = rs.getString("ID");
+            ItemName = rs.getString("ItemName");
+            Stock = rs.getInt("Stock");
+            Price = rs.getDouble("Price");
+            Manu = rs.getString("Manufacturer");
+            ModelNum = rs.getString("ModelNumber");
+            Description = rs.getString("Description");
             con.close();
         }
         catch(Exception e){
@@ -258,13 +258,13 @@ public class Item {
             String sql = "SELECT * from Furniture WHERE ID = "+ID+"";
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-            ItemID = rs.getString(1);
-            ItemName = rs.getString(2);
-            Stock = rs.getInt(3);
-            Price = rs.getDouble(4);
-            Manu = rs.getString(5);
-            ModelNum = rs.getString(6);
-            Description = rs.getString(7);
+            ItemID = rs.getString("ID");
+            ItemName = rs.getString("ItemName");
+            Stock = rs.getInt("Stock");
+            Price = rs.getDouble("Price");
+            Manu = rs.getString("Manufacturer");
+            ModelNum = rs.getString("ModelNumber");
+            Description = rs.getString("Description");
             con.close();
         }
         catch(Exception e){
@@ -331,6 +331,92 @@ public class Item {
             System.out.println(e);
         }
    }
+   //////////////////////////////////////////////////////////////////
+   //Select, Insert, Update, and Delete Methods for WritingPaper Table
+      
+    //Select Method
+    public void selectPaper(String ID){
+   
+        try{
+            Connection con =
+            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * from WritingPaper WHERE ID = "+ID+"";
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            ItemID = rs.getString("ID");
+            ItemName = rs.getString("ItemName");
+            Stock = rs.getInt("Stock");
+            Price = rs.getDouble("Price");
+            Manu = rs.getString("Manufacturer");
+            ModelNum = rs.getString("ModelNumber");
+            Description = rs.getString("Description");
+            con.close();
+        }
+        catch(Exception e){
+                System.out.println(e);
+        }
+    }
+    //Insert Method
+    public void insertPaper(String ItemID, String ItemName, int Stock, double Price, String Manu, String ModelNum, String Description){
+ 
+        try{
+            Connection con =
+            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            String sql = "INSERT into WritingPaper(ID, ItemName, Stock, Price, Manufacturer, ModelNumber, Description)" + "values(?,?,?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, ItemID);
+            ps.setString(2, ItemName);
+            ps.setInt(3, Stock);
+            ps.setDouble(4, Price);
+            ps.setString(5, Manu);
+            ps.setString(6, ModelNum);
+            ps.setString(7, Description);
+            ps.execute();
+            System.out.println("One new item was successfully added!");
+            con.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+   //Update Method
+   public void updatePaper(){
+        try{
+            Connection con =
+            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            String sql = "UPDATE WritingPaper SET ItemName =?, Stock =?, Price =?, Manufacturer =?, ModelNumber =?, Description =? WHERE ID =?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, ItemName);
+            ps.setInt(2, Stock);
+            ps.setDouble(3, Price);
+            ps.setString(4, Manu);
+            ps.setString(5, ModelNum);
+            ps.setString(6, Description);
+            ps.setString(7, ItemID);
+            ps.executeUpdate();
+            System.out.println("One item was successfully updated!");
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+   }
+   //Delete Method
+   public void deletePaper(){
+        try{
+            Connection con =
+            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            String sql = "DELETE from WritingPaper WHERE ID = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, ItemID);
+            ps.executeUpdate();
+            System.out.println("One item was successfully deleted!");
+            con.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+   }
    
   ////////////////  
   //Display Method
@@ -345,8 +431,8 @@ public class Item {
     }
     public static void main(String[] args){
         Item i1 = new Item();
-        i1.selectDecoration("1");
-        i1.Display();
+        i1.selectElectronic("41");
+        i1.deleteElectronic();
    
     }
 
