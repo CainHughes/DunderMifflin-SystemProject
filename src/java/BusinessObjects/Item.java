@@ -12,6 +12,9 @@ public class Item {
     String ModelNum;
     String Description;
     
+    Path path = Paths.get("inventory_database.accdb");
+    String database = path.toFile().getAbsolutePath();
+    
     
     //Constructors
     public Item(String ItemID, String ItemName, int Stock, double Price, String Manu, String ModelNum, String Description){
@@ -80,7 +83,7 @@ public class Item {
    
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             Statement stmt = con.createStatement();
             String sql = "SELECT * from Electronics WHERE ID = "+ID+"";
             ResultSet rs = stmt.executeQuery(sql);
@@ -103,7 +106,7 @@ public class Item {
  
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "INSERT into Electronics(ID, ItemName, Stock, Price, Manufacturer, ModelNumber, Description)" + "values(?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemID);
@@ -125,7 +128,7 @@ public class Item {
    public void updateElectronic(){
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "UPDATE Electronics SET ItemName =?, Stock =?, Price =?, Manufacturer =?, ModelNumber =?, Description =? WHERE ID =?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemName);
@@ -146,7 +149,7 @@ public class Item {
    public void deleteElectronic(){
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "DELETE from Electronics WHERE ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemID);
@@ -166,7 +169,7 @@ public class Item {
    
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             Statement stmt = con.createStatement();
             String sql = "SELECT * from Decoration WHERE ID = "+ID+"";
             ResultSet rs = stmt.executeQuery(sql);
@@ -189,7 +192,7 @@ public class Item {
  
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "INSERT into Decoration(ID, ItemName, Stock, Price, Manufacturer, ModelNumber, Description)" + "values(?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemID);
@@ -211,7 +214,7 @@ public class Item {
    public void updateDecoration(){
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "UPDATE Decoration SET ItemName =?, Stock =?, Price =?, Manufacturer =?, ModelNumber =?, Description =? WHERE ID =?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemName);
@@ -232,7 +235,7 @@ public class Item {
    public void deleteDecoration(){
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "DELETE from Decoration WHERE ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemID);
@@ -253,7 +256,7 @@ public class Item {
    
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             Statement stmt = con.createStatement();
             String sql = "SELECT * from Furniture WHERE ID = "+ID+"";
             ResultSet rs = stmt.executeQuery(sql);
@@ -276,7 +279,7 @@ public class Item {
  
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "INSERT into Furniture(ID, ItemName, Stock, Price, Manufacturer, ModelNumber, Description)" + "values(?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemID);
@@ -298,7 +301,7 @@ public class Item {
    public void updateFurniture(){
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "UPDATE Furniture SET ItemName =?, Stock =?, Price =?, Manufacturer =?, ModelNumber =?, Description =? WHERE ID =?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemName);
@@ -319,7 +322,7 @@ public class Item {
    public void deleteFurniture(){
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "DELETE from Furniture WHERE ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemID);
@@ -339,7 +342,7 @@ public class Item {
    
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             Statement stmt = con.createStatement();
             String sql = "SELECT * from WritingPaper WHERE ID = "+ID+"";
             ResultSet rs = stmt.executeQuery(sql);
@@ -362,7 +365,7 @@ public class Item {
  
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "INSERT into WritingPaper(ID, ItemName, Stock, Price, Manufacturer, ModelNumber, Description)" + "values(?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemID);
@@ -384,7 +387,7 @@ public class Item {
    public void updatePaper(){
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "UPDATE WritingPaper SET ItemName =?, Stock =?, Price =?, Manufacturer =?, ModelNumber =?, Description =? WHERE ID =?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemName);
@@ -405,7 +408,7 @@ public class Item {
    public void deletePaper(){
         try{
             Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://C:/Users/GC3/Desktop/Inventory.accdb");
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
             String sql = "DELETE from WritingPaper WHERE ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ItemID);
@@ -420,7 +423,7 @@ public class Item {
    
   ////////////////  
   //Display Method
-    public void Display(){
+    public void display(){
         System.out.println("Item ID: " + this.ItemID);
         System.out.println("Item Name: " + this.ItemName);
         System.out.println("Stock: " + this.Stock);
@@ -431,8 +434,8 @@ public class Item {
     }
     public static void main(String[] args){
         Item i1 = new Item();
-        i1.selectElectronic("41");
-        i1.deleteElectronic();
+        i1.selectElectronic("32");
+        i1.display();
    
     }
 
