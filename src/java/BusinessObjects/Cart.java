@@ -54,7 +54,7 @@ public class Cart {
                 System.out.println(invSql);
                 ResultSet invRs = invStmt.executeQuery(invSql);
                 invRs.next();
-                Item i1 = new Item(invRs.getString(1), invRs.getString(2), invRs.getInt(3), invRs.getDouble(4), invRs.getString(5), invRs.getString(6), invRs.getString(7));
+                Item i1 = new Item(invRs.getString("ID"), invRs.getString("ItemName"), invRs.getInt("Stock"), invRs.getDouble("Price"), invRs.getString("Manufacturer"), invRs.getString("ModelNumber"), invRs.getString("Description"));
                 cartList.add(i1);
             }
             accCon.close();
