@@ -10,24 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <style>
-            h1{
-                color: green;
-            }
-            p, a{
-                color: darkblue;
-            }
-            .button{
-                  background-color: darkblue;
-                  border: none;
-                  color: white;
-                  padding: 15px 32px;
-                  margin: 5px;
-                  text-align: center;
-                  display: inline-block;
-                  font-size: 16x;
-            }
-        </style>
+        <link rel="stylesheet" href="SystemProjectCSS.css">
     </head>
     <body>
         <form name="loginForm" method="post" action="LoginServlet">
@@ -42,8 +25,5 @@
         <input type="submit" name='logBtn' value='Login' class="button"> 
         <input type='reset' name='resetBtn' value='Clear' class="button">
         </form>
-       
-        
-       
     </body>
 </html>
