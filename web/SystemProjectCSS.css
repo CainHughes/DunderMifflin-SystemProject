@@ -1,0 +1,22 @@
+/******************************
+*******SystemProjectCSS*******/
+       
+    h1{
+        color: green;
+    }
+    body{
+        background-color:#ffcc99;
+    }
+    p, a{
+        color: darkblue;
+    }
+    .button{
+        background-color: darkblue;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        margin: 5px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+    } 
