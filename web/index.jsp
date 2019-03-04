@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="SystemProjectCSS.css">
+        <link rel = "stylesheet" type = "text/css" href = "SystemProjectCSS.css" />
     </head>
     <body>
         <form name="loginForm" method="post" action="LoginServlet">
@@ -23,7 +23,8 @@
         <a href="null">Continue as guest</a></p> 
         
         <input type="submit" name='logBtn' value='Login' class="button"> 
-        <input type='reset' name='resetBtn' value='Clear' class="button">
+        <input type=
+        <input type="submit" name'reset' name='resetBtn' value='Clear' class="button">
         </form>
     </body>
 </html>
