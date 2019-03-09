@@ -1,14 +1,9 @@
 /******************************
 *******SystemProjectCSS*******/
        
-    h1{
-        color: green;
-    }
+    
     body{
         background-color:#ffcc99;
-    }
-    p, a{
-        color: darkblue;
     }
     .button{
         background-color: darkblue;
@@ -20,3 +15,38 @@
         display: inline-block;
         font-size: 16px;
     } 
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    div{
+        box-sizing: border-box;
+    }
+    h1{
+        color: green;
+    }
+    li {
+        display: inline;
+        color: green;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none; 
+    }
+    p, a{
+        color: darkblue;
+    }
+   
+    .top1{
+        float: left;
+        width: 33.33%;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: green;
+    }
+    
+
+    
