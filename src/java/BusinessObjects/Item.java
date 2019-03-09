@@ -436,7 +436,7 @@ public class Item {
         Item i1 = new Item();
         i1.selectElectronic("32");
         i1.display();
-   
+     
     }
 
 }
