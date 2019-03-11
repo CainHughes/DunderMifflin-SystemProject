@@ -19,7 +19,7 @@
             <input type="text" name="usernameTB"> </p> 
         <p> Password:
             <input type="text" name="passwordTB"> </p> 
-        <p><a href="null">Create Account</a>
+        <p><a href="CreateAccount.jsp">Create Account</a>
         <a href="null">Continue as guest</a></p> 
         
         <input type="submit" name='logBtn' value='Login' class="button"> 

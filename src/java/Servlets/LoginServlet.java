@@ -18,16 +18,16 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
-    String id;
+    String uname;
     String pw;
-    String dbid;
+    String dbuname;
     String dbpw;
   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        
-        id = request.getParameter("usernameTB");
+        uname = request.getParameter("usernameTB");
         pw = request.getParameter("passwordTB");
         PrintWriter out = response.getWriter();
         Path path = Paths.get("accounts_database.accdb");
@@ -38,17 +38,17 @@ public class LoginServlet extends HttpServlet {
              Connection con =
                DriverManager.getConnection("jdbc:ucanaccess://"+database);
                Statement stmt = con.createStatement();
-               String sql ="SELECT * FROM Customer WHERE UserName = "+id+"";
+               String sql ="SELECT * FROM Customer WHERE UserName = "+uname+"";
                ResultSet rs = stmt.executeQuery(sql);
                while(rs.next()){
-                   dbid = rs.getString("UserName");
+                   dbuname = rs.getString("UserName");
                    dbpw = rs.getString("Password");
                }
         }
         catch(Exception e){
             
         }
-        if(id.equals(dbid) && pw.equals(dbpw)){
+        if(uname.equals(dbuname) && pw.equals(dbpw)){
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
