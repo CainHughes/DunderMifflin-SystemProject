@@ -22,10 +22,25 @@ public class Customer {
     int cardNum;
     String cardType;
     
+    //just change this to wherever it's located on your computer
+    String yourDatabase = ("jdbc:ucanaccess://C:/Users/Madbr/Downloads/accounts_database.accdb");
+    
+    
     Path path = Paths.get("accounts_database.accdb");
     String database = path.toFile().getAbsolutePath();
     
     //Constructors
+    /**********************************************
+     * @param accID the customer's id.
+     * @param username the customer's username
+     *  @param password the customer's password.
+     *  @param fName the customer's first name.
+     *  @param lName the customer's last name.
+     *  @param email the customer's email.
+     *  @param address the customer's address.
+     * @param cardNum the customer's card number.
+     * @param cardType the customer's card type.
+    ************************************************/
     public Customer(int accID, String username, String password, String fName, String lName, String email, String address, int cardNum, String cardType){
         this.accID = accID;
         this.username = username;
@@ -54,6 +69,7 @@ public class Customer {
     public int getAccID(){
         return accID;
     }
+    
     public void setAccID(int e){
         this.accID = e;
     }
@@ -108,9 +124,36 @@ public class Customer {
     
     // Methods below here
     
+     //Select Method for login
+    public void selectCustomerLogin(String uname){
+        try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            Connection con = DriverManager.getConnection(yourDatabase);
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * FROM Customer WHERE UserName = '" +uname+ "'";
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            accID = rs.getInt("ID");
+            username = rs.getString("UserName");
+            password = rs.getString("Password");
+            fName = rs.getString("FirstName");
+            lName = rs.getString("LastName");
+            email = rs.getString("Email");
+            address = rs.getString("Address");
+            cardNum = rs.getInt("CardNumber");
+            cardType = rs.getString("CardType");
+            con.close();
+            
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
     //Select Method
     public void selectCustomer(int selID){
         try{
+            
             Connection con = DriverManager.getConnection("jdbc:ucanaccess://"+database);
             Statement stmt = con.createStatement();
             String sql = "SELECT * from Customer WHERE ID ="+selID;

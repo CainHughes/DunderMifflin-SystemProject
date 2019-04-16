@@ -8,60 +8,47 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.SQLException;
+import BusinessObjects.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
     String uname;
     String pw;
-    String dbuname;
-    String dbpw;
-  
+ 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+        try (PrintWriter out = response.getWriter()) {
+         
         uname = request.getParameter("usernameTB");
         pw = request.getParameter("passwordTB");
-        PrintWriter out = response.getWriter();
-        Path path = Paths.get("accounts_database.accdb");
-        String database = path.toFile().getAbsolutePath();
-        
-        try{
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-             Connection con =
-               DriverManager.getConnection("jdbc:ucanaccess://"+database);
-               Statement stmt = con.createStatement();
-               String sql ="SELECT * FROM Customer WHERE UserName = "+uname+"";
-               ResultSet rs = stmt.executeQuery(sql);
-               while(rs.next()){
-                   dbuname = rs.getString("UserName");
-                   dbpw = rs.getString("Password");
-               }
-        }
-        catch(Exception e){
+       
+        Customer c1 = new Customer();
+        c1.selectCustomerLogin(uname);
+        c1.Display();
+      
+       
+        if(pw.equals(c1.getPassword())){
+            HttpSession ses1;
+                ses1 = request.getSession();
+                ses1.setAttribute("c1", c1);
             
-        }
-        if(uname.equals(dbuname) && pw.equals(dbpw)){
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlt</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Login Valid</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            RequestDispatcher rd = request.getRequestDispatcher("/Homepage.jsp");
+                    rd.forward(request, response);
         }
         else{
           RequestDispatcher rd = request.getRequestDispatcher("/LoginError.jsp");
                     rd.forward(request, response); 
+        }
         }
     }
 
