@@ -36,8 +36,11 @@ public class LoginServlet extends HttpServlet {
         c1.selectCustomerLogin(uname);
         c1.Display();
       
-       
-        if(pw.equals(c1.getPassword())){
+       if(pw.equals("")){
+           RequestDispatcher rd = request.getRequestDispatcher("/LoginError.jsp");
+                    rd.forward(request, response);
+       }
+       else if(pw.equals(c1.getPassword())){
             HttpSession ses1;
                 ses1 = request.getSession();
                 ses1.setAttribute("c1", c1);
