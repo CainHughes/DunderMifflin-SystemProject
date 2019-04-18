@@ -12,7 +12,7 @@
     </head>
     <body>
         <h1>Create new Customer Account</h1>
-        <form action = "http://localhost:8080/SystemProject/CreateAccount" method = "Post">
+        <form action = "CreateAccountServlet" method = "Post">
             <p> UserName:<input type="text" name="custNametb"/><br>
             Password:<input type="text" name="custPasstb"/><br>
             First Name:<input type="text" name="fnametb"/><br>

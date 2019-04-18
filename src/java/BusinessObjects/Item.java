@@ -274,6 +274,29 @@ public class Item {
                 System.out.println(e);
         }
     }
+    //Select All Furniture
+    public void selectAllFurniture(){
+         try{
+            Connection con =
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * from Furniture";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+            ItemID = rs.getString("ID");
+            ItemName = rs.getString("ItemName");
+            Stock = rs.getInt("Stock");
+            Price = rs.getDouble("Price");
+            Manu = rs.getString("Manufacturer");
+            ModelNum = rs.getString("ModelNumber");
+            Description = rs.getString("Description");
+         }
+            con.close();
+        }
+        catch(Exception e){
+                System.out.println(e);
+        }
+    }
     //Insert Method
     public void insertFurniture(String ItemID, String ItemName, int Stock, double Price, String Manu, String ModelNum, String Description){
  
@@ -434,7 +457,7 @@ public class Item {
     }
     public static void main(String[] args){
         Item i1 = new Item();
-        i1.selectElectronic("32");
+        i1.selectAllFurniture();
         i1.display();
      
     }

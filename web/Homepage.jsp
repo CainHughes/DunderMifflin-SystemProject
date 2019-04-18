@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Furniture Catalog</title>
         <link rel = "stylesheet" type = "text/css" href = "SystemProjectCSS.css" />
     </head>
     <body>
@@ -33,11 +33,11 @@
             <div class="middle">
                 <ul>
                      <li><a href="AllProducts.jsp">All Products</a></li>
-                     <li><a href="#AllProducts.jspW/DecorFilter">Decor</a></li>
-                     <li><a href="#AllProducts.jspW/ElectronicsFilter">Electronics</a></li>
-                     <li><a href="#AllProducts.jspW/FurnitureFilter">Furniture</a></li>
-                     <li><a href="#AllProducts.jspW/PaperWritingFilter">Paper & Writing</a></li>
-                     <li><a href="#ViewAccount.jsp">My Account</a></li>
+                     <li><a href="Decoration.jsp">Decor</a></li>
+                     <li><a href="Electronic.jsp">Electronics</a></li>
+                     <li><a href="Furniture.jsp">Furniture</a></li>
+                     <li><a href="PaperWriting.jsp">Paper & Writing</a></li>
+                     <li><a href="ViewAccount.jsp">My Account</a></li>
                 </ul>
             </div>
         

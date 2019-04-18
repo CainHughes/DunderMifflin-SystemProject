@@ -23,7 +23,7 @@ public class Customer {
     String cardType;
     
     //just change this to wherever it's located on your computer
-    String yourDatabase = ("jdbc:ucanaccess://C:/Users/Madbr/Downloads/accounts_database.accdb");
+    String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/accounts_database.accdb");
     
     
     Path path = Paths.get("accounts_database.accdb");
@@ -254,7 +254,8 @@ public class Customer {
     
     public static void main(String args[]){
     Customer cust1 = new Customer();
-    cust1.selectCustomer(5);
+    cust1.insertCustomer("16", "g", "g", "g", "g", "g", "g", 444, "g");
+    cust1.selectCustomer(16);
     cust1.Display();
     }
     

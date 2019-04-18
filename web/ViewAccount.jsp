@@ -36,7 +36,7 @@
                      <li><a href="AllProducts.jsp">All Products</a></li>
                      <li><a href="#AllProducts.jspW/DecorFilter">Decor</a></li>
                      <li><a href="#AllProducts.jspW/ElectronicsFilter">Electronics</a></li>
-                     <li><a href="#AllProducts.jspW/FurnitureFilter">Furniture</a></li>
+                     <li><a href="Furniture.jsp">Furniture</a></li>
                      <li><a href="#AllProducts.jspW/PaperWritingFilter">Paper & Writing</a></li>
                      <li><a href="ViewAccount.jsp">My Account</a></li>
                 </ul>
