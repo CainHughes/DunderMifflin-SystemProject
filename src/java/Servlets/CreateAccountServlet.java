@@ -1,15 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlets;
 
+import BusinessObjects.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.SQLException;
-import BusinessObjects.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,40 +16,48 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
-public class LoginServlet extends HttpServlet {
+/**
+ *
+ * @author GC3
+ */
+@WebServlet(name = "CreateAccountServlet", urlPatterns = {"/CreateAccountServlet"})
+public class CreateAccountServlet extends HttpServlet {
     String uname;
     String pw;
+    String fName;
+    String lName;
+    String email;
+    String address;
+    String cardType;
+    String cardNum;
+    int cn;
  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-         
-        uname = request.getParameter("usernameTB");
-        pw = request.getParameter("passwordTB");
        
-        Customer c1 = new Customer();
-        c1.selectCustomerLogin(uname);
-        c1.Display();
-      
-       if(pw.equals("")){
-           RequestDispatcher rd = request.getRequestDispatcher("/LoginError.jsp");
-                    rd.forward(request, response);
-       }
-       else if(pw.equals(c1.getPassword())){
-            HttpSession ses1;
-                ses1 = request.getSession();
-                ses1.setAttribute("c1", c1);
-            
-            RequestDispatcher rd = request.getRequestDispatcher("/Homepage.jsp");
-                    rd.forward(request, response);
+        uname = request.getParameter("custNametb");
+        pw = request.getParameter("custPasstb");
+        fName = request.getParameter("fnametb");
+        lName = request.getParameter("lnametb");
+        email = request.getParameter("emailtb");
+        address = request.getParameter("addtb");
+        cardNum = request.getParameter("cardNumtb");
+        cardType = request.getParameter("cardTypetb");
+        cn = Integer.parseInt(cardNum);
+        
+        try{
+            Customer c1 = new Customer();
+            c1.insertCustomer("20", uname, pw, fName, lName, email, address, 555, cardType);
+            HttpSession hs1;
+            hs1 = request.getSession();
+            hs1.setAttribute("c1", c1);
+            System.out.println("Customer was added to the session");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    rd.forward(request, response);   
         }
-        else{
-          RequestDispatcher rd = request.getRequestDispatcher("/LoginError.jsp");
-                    rd.forward(request, response); 
-        }
+        catch(Exception e){
+            System.out.println(e);
         }
     }
 
