@@ -1,31 +1,28 @@
 <%-- 
-    Document   : index
-    Created on : Jan 31, 2019, 4:48:09 PM
+    Document   : OPPlogin
+    Created on : Apr 22, 2019, 1:14:20 PM
     Author     : Madbr
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+   <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel = "stylesheet" type = "text/css" href = "SystemProjectCSS.css" />
     </head>
     <body>
-        <form name="loginForm" method="post" action="LoginServlet">
+        <form name="loginForm" method="post" action="OPPLoginServlet">
         <h1>D.M. Office Supplies</h1>
+        <h2>Order Processing Login</h2>
         <p> Username:
             <input type="text" name="usernameTB"> </p> 
         <p> Password:
-            <input type="text" name="passwordTB"> </p> 
-        <p><a href="CreateAccount.jsp">Create Account</a>
-        <a href="null">Continue as guest</a></p> 
+            <input type="text" name="passwordTB"> </p>
         
         <input type="submit" name='logBtn' value='Login' class="button"> 
         <input type='reset' name='resetBtn' value='Clear' class="button">
-        
-        <a href="OPPlogin.jsp">Order Processing Login</a>
         </form>
     </body>
 </html>

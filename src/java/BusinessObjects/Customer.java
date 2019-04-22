@@ -23,7 +23,7 @@ public class Customer {
     String cardType;
     
     //just change this to wherever it's located on your computer
-    String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/accounts_database.accdb");
+    String yourDatabase = ("jdbc:ucanaccess://C:/Users/Madbr/Downloads/accounts_database.accdb");
     
     
     Path path = Paths.get("accounts_database.accdb");

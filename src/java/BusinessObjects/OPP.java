@@ -18,6 +18,9 @@ public class OPP {
     String fName;
     String lName;
     
+    //just change this to wherever it's located on your computer
+    String yourDatabase = ("jdbc:ucanaccess://C:/Users/Madbr/Downloads/accounts_database.accdb");
+    
     Path path = Paths.get("accounts_database.accdb");
     String database = path.toFile().getAbsolutePath();
     
@@ -72,7 +75,27 @@ public class OPP {
     
     
     // Methods below here
-    
+     //Select Method for login
+    public void selectOPPLogin(String uname){
+        try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            Connection con = DriverManager.getConnection(yourDatabase);
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * FROM OPP WHERE UserName = '" +uname+ "'";
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            accID = rs.getInt("ID");
+            username = rs.getString("UserName");
+            password = rs.getString("Password");
+            fName = rs.getString("FirstName");
+            lName = rs.getString("LastName");
+            con.close();
+            
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
     //Select Method
     public void selectOPP(int selID){
         try{

@@ -24,6 +24,8 @@
         
         <input type="submit" name='logBtn' value='Login' class="button"> 
         <input type='reset' name='resetBtn' value='Clear' class="button">
+        
+        <a href="OPPlogin.jsp">Order Processing Login</a>
         </form>
     </body>
 </html>
