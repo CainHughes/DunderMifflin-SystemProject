@@ -30,7 +30,7 @@ public class CreateAccountServlet extends HttpServlet {
     String address;
     String cardType;
     String cardNum;
-    int cn;
+    String cn;
  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -44,11 +44,10 @@ public class CreateAccountServlet extends HttpServlet {
         address = request.getParameter("addtb");
         cardNum = request.getParameter("cardNumtb");
         cardType = request.getParameter("cardTypetb");
-        cn = Integer.parseInt(cardNum);
         
         try{
             Customer c1 = new Customer();
-            c1.insertCustomer("20", uname, pw, fName, lName, email, address, 555, cardType);
+            c1.insertCustomer(uname, pw, fName, lName, email, address, cardNum, cardType);
             HttpSession hs1;
             hs1 = request.getSession();
             hs1.setAttribute("c1", c1);
