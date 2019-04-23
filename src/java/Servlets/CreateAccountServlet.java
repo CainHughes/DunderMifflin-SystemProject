@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "CreateAccountServlet", urlPatterns = {"/CreateAccountServlet"})
 public class CreateAccountServlet extends HttpServlet {
+    int accID;
     String uname;
     String pw;
     String fName;
@@ -30,7 +31,7 @@ public class CreateAccountServlet extends HttpServlet {
     String address;
     String cardType;
     String cardNum;
-    String cn;
+    int cn;
  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -44,10 +45,15 @@ public class CreateAccountServlet extends HttpServlet {
         address = request.getParameter("addtb");
         cardNum = request.getParameter("cardNumtb");
         cardType = request.getParameter("cardTypetb");
+        cn = Integer.parseInt(cardNum);
+        
         
         try{
             Customer c1 = new Customer();
-            c1.insertCustomer(uname, pw, fName, lName, email, address, cardNum, cardType);
+            c1.selectLastCustomer();
+            accID = c1.getAccID();
+            String ID = Integer.toString(accID);
+            c1.insertCustomer(ID,uname, pw, fName, lName, email, address, cn, cardType);
             HttpSession hs1;
             hs1 = request.getSession();
             hs1.setAttribute("c1", c1);
