@@ -21,9 +21,10 @@ public class Customer {
     String address;
     int cardNum;
     String cardType;
+    int lastID;
     
     //just change this to wherever it's located on your computer
-    String yourDatabase = ("jdbc:ucanaccess://C:/Users/Madbr/Downloads/accounts_database.accdb");
+    String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/accounts_database.accdb");
     
     
     Path path = Paths.get("accounts_database.accdb");
@@ -153,7 +154,7 @@ public class Customer {
     //Select Method
     public void selectCustomer(int selID){
         try{
-            
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection con = DriverManager.getConnection("jdbc:ucanaccess://"+database);
             Statement stmt = con.createStatement();
             String sql = "SELECT * from Customer WHERE ID ="+selID;
@@ -175,12 +176,30 @@ public class Customer {
             System.out.println(e);
         }
     }
+     //Select Method
+    public void selectLastCustomer(){
+        try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            Connection con = DriverManager.getConnection("jdbc:ucanaccess://"+database);
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * from Customer";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+            lastID = rs.getInt("ID");     
+            con.close();
+            }
+            accID = 1 + lastID;
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
     
     //Insert method
     public void insertCustomer(String accID, String username, String password, String fName, String lName, String email, String address, int cardNum, String cardType){
         try{
-            Connection con =
-            DriverManager.getConnection("jdbc:ucanaccess://"+database);
+            
+            Connection con = DriverManager.getConnection(yourDatabase);
             String sql = "INSERT into Customer(ID, UserName, Password, FirstName, LastName, Email, Address, CardNumber, CardType)" + "values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, accID);
@@ -254,9 +273,8 @@ public class Customer {
     
     public static void main(String args[]){
     Customer cust1 = new Customer();
-    cust1.insertCustomer("16", "g", "g", "g", "g", "g", "g", 444, "g");
-    cust1.selectCustomer(16);
-    cust1.Display();
+    
+ 
     }
     
     
