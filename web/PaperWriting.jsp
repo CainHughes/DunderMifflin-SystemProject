@@ -54,7 +54,13 @@
             
         <h2>Paper/Writing Catalog</h2>
         <img src="paperWriting.png" height="200" width="400"/>
-        <p>Type paper/writing ID# here to add to cart <input type="addPaper" name="addPaperTb" placeholder="Enter ID Here"> <input type="quant" name="quantTb" placeholder="Quantity">  <button>Add to Cart</button> </p>
+        <p>Type paper/writing ID# here to add to cart</p>
+	<form action="AddToCart" method="post">
+            <input type="number" id="itemID" name="itemID" placeholder="Enter ID Here">
+            <input type="number" id="quantity" name="quantity" placeholder="Quantity">
+            <input type="text" name="databaseLocation" value="Writing_paper">
+            <input type="submit" value="Add To Cart">
+	</form>
         <div class="table">   <table border = ".5" width = "100%" bgcolor="green">
                 <th>ID</th>
                 <th>Item Name</th>

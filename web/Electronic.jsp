@@ -53,7 +53,13 @@
             
         <h2>Electronics Catalog</h2>
         <img src="electronic.jpg" height="200" width="400"/>
-        <p>Type electronic ID# here to add to cart <input type="addFurn" name="addFurnTb" placeholder="Enter ID Here"> <input type="quant" name="quantTb" placeholder="Quantity">  <button>Add to Cart</button> </p>
+        <p>Type electronic ID# here to add to cart</p>
+	<form action="AddToCart" method="post">
+            <input type="number" id="itemID" name="itemID" placeholder="Enter ID Here">
+            <input type="number" id="quantity" name="quantity" placeholder="Quantity">
+            <input type="text" name="databaseLocation" value="Electronics">
+            <input type="submit" value="Add To Cart">
+	</form>
         <div class="table">   <table border = ".5" width = "100%" bgcolor="green">
                 <th>ID</th>
                 <th>Item Name</th>

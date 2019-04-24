@@ -22,17 +22,28 @@ public class Cart {
     ArrayList<String> quantity = new ArrayList<>();
     ArrayList<String> itemTable = new ArrayList<>();
     String custID;
-    
-    Path accPath = Paths.get("accounts_database.accdb");
-    Path invPath = Paths.get("inventory_database.accdb");
-    String accDatabase = accPath.toFile().getAbsolutePath();
-    String invDatabase = invPath.toFile().getAbsolutePath();
-    String accSql,invSql;
 
+    //just change this to wherever it's located on your computer
+    String accPath = "C:/Users/donov/Documents/accounts_database.accdb";
+    String invPath = "C:/Users/donov/Documents/inventory_database.accdb";
+    String accSql,invSql;
+    
+    
+// setter getter
+    public String getCustID() {
+        return custID;
+    }
+
+    public void setCustID(String custID) {
+        this.custID = custID;
+    }
+    
 //Constructor
     
     public Cart(String custID) {
         this.custID = custID;
+    }
+    public Cart() {
     }
     
 //Select Method
@@ -70,13 +81,17 @@ public class Cart {
     public void insertDB(String itemID, String quantity, String itemTable) {
         try{
             Connection accCon = DriverManager.getConnection("jdbc:ucanaccess://"+accPath);
-            String sql = "INSERT into Decoration(custID, itemID, quantity, itemTable)" + "values(?,?,?,?)";
-            PreparedStatement ps = accCon.prepareStatement(sql);
-            ps.setString(1, custID);
-            ps.setString(2, itemID);
-            ps.setString(3, quantity);
-            ps.setString(4, itemTable);
-            ps.execute();
+            Statement stmt = accCon.createStatement();
+            String sql = "INSERT into Cart values ("+custID+","+itemID+","+quantity+",'"+itemTable+"')";
+            System.out.println(sql);
+            int rs = stmt.executeUpdate(sql);
+            if (rs == 1){
+                System.out.println("Data inserted");
+                selectDB();
+            }
+            else{
+                System.out.println("Error inserting data");
+                }
         }
         catch (SQLException se){
             System.out.println("SQL Exception: "+se);
@@ -167,10 +182,5 @@ public class Cart {
             System.out.println("located in itemTable: " + itemTable.get(i));
             System.out.println("----------------------------------");
         }
-    }
-    public static void main(String[] args){
-        Cart c1 = new Cart("1");
-        c1.selectDB();
-        c1.display();
     }
 }

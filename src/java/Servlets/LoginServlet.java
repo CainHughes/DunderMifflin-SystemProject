@@ -34,6 +34,8 @@ public class LoginServlet extends HttpServlet {
        
         Customer c1 = new Customer();
         c1.selectCustomerLogin(uname);
+        c1.cart = new Cart(Integer.toString(c1.getAccID()));
+        c1.cart.selectDB();
         c1.Display();
       
        if(pw.equals("")){
