@@ -22,6 +22,7 @@ public class Customer {
     int cardNum;
     String cardType;
     int lastID;
+    public Cart cart;
     
     //just change this to wherever it's located on your computer
     String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/accounts_database.accdb");
