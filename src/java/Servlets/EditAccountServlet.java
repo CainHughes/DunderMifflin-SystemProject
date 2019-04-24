@@ -44,11 +44,15 @@ public class EditAccountServlet extends HttpServlet {
         cardNum = request.getParameter("cardNumtb");
         cardType = request.getParameter("cardTypetb");
         cn = Integer.parseInt(cardNum);
+        Customer c1;
         
         
         try{
-            Customer c1 = new Customer();
+            HttpSession ses1;
+            ses1 = request.getSession();
+            c1 = (Customer)ses1.getAttribute("c1");
             accID = c1.getAccID();
+            System.out.println("Customer ID: " + accID);
             c1.selectCustomer(accID);
             c1.setUsername(uname);
             c1.setPassword(pw);

@@ -155,7 +155,7 @@ public class Customer {
     public void selectCustomer(int selID){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://"+database);
+            Connection con = DriverManager.getConnection(yourDatabase);
             Statement stmt = con.createStatement();
             String sql = "SELECT * from Customer WHERE ID ="+selID;
             ResultSet rs = stmt.executeQuery(sql);
@@ -276,6 +276,8 @@ public class Customer {
     public static void main(String args[]){
     Customer cust1 = new Customer();
     cust1.selectCustomer(2);
+    cust1.setAddress("555 Glory Hills");
+    cust1.setCardNum(45543);
     cust1.setCardType("Visa");
     cust1.updateCustomer();
  
