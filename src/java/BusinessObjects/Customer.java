@@ -223,7 +223,8 @@ public class Customer {
     //Update method
     public void updateCustomer(){
         try{
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://"+database);
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            Connection con = DriverManager.getConnection(yourDatabase);
             String sql = "UPDATE Customer SET UserName =?,  Password =?, FirstName =?, LastName =?, Email =?, Address =?, CardNumber =?, CardType =? WHERE ID =?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, username);
@@ -234,6 +235,7 @@ public class Customer {
             ps.setString(6, address);
             ps.setInt(7, cardNum);
             ps.setString(8, cardType);
+            ps.setInt(9, accID);
             ps.executeUpdate();
             System.out.println("Customer Successfully Updated");
         }
@@ -273,7 +275,9 @@ public class Customer {
     
     public static void main(String args[]){
     Customer cust1 = new Customer();
-    
+    cust1.selectCustomer(2);
+    cust1.setCardType("Visa");
+    cust1.updateCustomer();
  
     }
     

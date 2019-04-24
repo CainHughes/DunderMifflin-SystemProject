@@ -1,18 +1,23 @@
-
+<%-- 
+    Document   : Homepage
+    Created on : Mar 8, 2019, 1:37:48 PM
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" media="all" href="styles.css">
-        <title>New Account</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Furniture Catalog</title>
         <link rel = "stylesheet" type = "text/css" href = "SystemProjectCSS.css" />
     </head>
     <body>
-        <h1>Create new Customer Account</h1>
-        <form action = "CreateAccountServlet" method = "Post">
+        <div class="container">
+        <div class="top">
+          <div class="top1">
+          <h1>D.M. Office Supplies </h1>
+            <h2>Create new Account</h2>
+            <form action = "CreateAccountServlet" method = "Post">
             <p> UserName:<input type="text" name="custNametb"/><br>
             Password:<input type="text" name="custPasstb"/><br>
             First Name:<input type="text" name="fnametb"/><br>
@@ -25,5 +30,8 @@
             <input type="reset" value="Clear" class="button"/><br>
             <a href="index.jsp">Return to the previous screen</a></p> 
         </form>
+            </div>
+        </div>
     </body>
 </html>
+
