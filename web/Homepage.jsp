@@ -3,6 +3,7 @@
     Created on : Mar 8, 2019, 1:37:48 PM
 --%>
 
+<%@page import="BusinessObjects.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,9 +25,21 @@
               <button>Search</button></p>
         </form>
         </div>
+            <%! Customer c1;
+                String fName;
+                %>
+              <% try{
+                HttpSession ses1;
+                ses1 = request.getSession();
+                c1 = (Customer)ses1.getAttribute("c1");
+                fName = c1.getFName();     
+                }
+               catch(Exception e){
+               }
+            %>
             <div class="top1" >
-                <a href="#index.jsp">Login Here</a>
-                <a href="#ViewCart.jsp"> View Cart</a>
+                <p>Hello, <%= fName %>!
+                    <a href="#ViewCart.jsp"> View Cart</a></p>
             </div>
         </div>
         
