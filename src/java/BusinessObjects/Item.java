@@ -11,9 +11,15 @@ public class Item {
     String Manu;
     String ModelNum;
     String Description;
+    String[] ItemIDArray;
+    String[] ItemNameArray;
+    int[] StockArray;
+    double[] PriceArray;
+    String[] ManuArray;
+    String[] ModelNumArray;
+    String[] DescriptionArray;
     
-    Path path = Paths.get("inventory_database.accdb");
-    String database = path.toFile().getAbsolutePath();
+    String database = "C:/Users/Cain/Desktop/inventory_database.accdb";
     
     
     //Constructors
@@ -74,6 +80,9 @@ public class Item {
     }
     public void setDescription(String d){
         this.Description = d;
+    }
+    public String[] getItemIDArray(){
+        return ItemIDArray;
     }
     //////////////////////////////////////////////////////////////////
     //Select, Insert, Update, and Delete Methods for Electronics Table
@@ -183,6 +192,39 @@ public class Item {
             Description = rs.getString("Description");
             con.close();
         }
+        catch(Exception e){
+                System.out.println(e);
+        }
+    }
+    //Select All Method
+    public void selectAllDecoration(){
+         try{
+            Connection con =
+            DriverManager.getConnection("jdbc:ucanaccess://"+database);
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * from Decoration";
+            int i = 0;
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+            ItemIDArray[i] = rs.getString("ID");
+            ItemNameArray[i] = rs.getString("ItemName");
+            StockArray[i] = rs.getInt("Stock");
+            PriceArray[i] = rs.getDouble("Price");
+            ManuArray[i] = rs.getString("Manufacturer");
+            ModelNumArray[i] = rs.getString("ModelNumber");
+            DescriptionArray[i] = rs.getString("Description");
+            i = i+1;
+         }
+            for(int c = 1; c < ItemIDArray.length; c++){
+            System.out.println(ItemIDArray[c]);
+            System.out.println(ItemNameArray[c]);
+            System.out.println(StockArray[c]);
+            System.out.println(PriceArray[c]);
+            System.out.println(ManuArray[c]);
+            System.out.println(ModelNumArray[c]);
+            System.out.println(DescriptionArray[c]);
+            }
+         }
         catch(Exception e){
                 System.out.println(e);
         }
@@ -457,12 +499,10 @@ public class Item {
     }
     public static void main(String[] args){
         Item i1 = new Item();
-        i1.selectAllFurniture();
-        i1.display();
+        i1.selectAllDecoration();
+    }
      
     }
-
-}
 
 
 
