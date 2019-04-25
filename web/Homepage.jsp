@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Furniture Catalog</title>
+        <title>D.M. Office Homepage</title>
         <link rel = "stylesheet" type = "text/css" href = "SystemProjectCSS.css" />
     </head>
     <body>
@@ -43,25 +43,37 @@
         
             
             <div class="bottom">
-                <h2>Top Sellers!</h2>
+                <h2 align="center">Top Sellers!</h2>
                 <table style="width:100%">
                     <tr>
-                        <th>Decor Product Details</th>
-                        <th>Electronic Product Details</th> 
-                        <th>Furniture Product Details</th>
-                        <th>Paper & Writing Product Details</th> 
+                        <th>Decoration</th>
+                        <th>Electronics</th> 
+                        <th>Furniture</th>
+                        <th>Paper & Writing</th> 
+                    </tr>
+                     <tr>
+                        <th>Metal Art Wall Gear Clock</th>
+                        <th>HP 15.6-Inch HD Touchscreen Laptop</th> 
+                        <th>Palmetto Computer Desk</th>
+                        <th>Composition Notebook</th> 
                     </tr>
                     <tr>
-                        <td><img alt="Decor Product Picture"></td>
-                        <td><img alt="Electronic Product Picture"></td>
-                        <td><img alt="Furniture Product Picture"></td>
-                        <td><img alt="Paper & Writing Product Picture"></td>
+                        <th><img src="decorTopSeller.jpg" alt="Decoration Product Picture" width="250" height="200"></th>
+                        <th><img src="electronicTopSeller.jpg" alt="Electronic Product Picture" width="250" height="200"></th>
+                        <th><img src="furnitureTopSeller.jpg" alt="Furniture Product Picture"width="250" height="200"></th>
+                        <th><img src="paperTopSeller.jpg" alt="Paper & Writing Product Picture" width="250" height="200"></th>
                     </tr>
                     <tr>
-                        <td>Price $</td>
-                        <td>Price $</td>
-                        <td>Price $</td>
-                        <td>Price $</td>
+                        <th>$147.99</th>
+                        <th>$286.00</th>
+                        <th>$149.99</th>
+                        <th>$0.52</th>
+                    </tr>
+                    <tr>
+                        <th>Surrounding yourself with beautiful objects that reflect your personal aesthetics can enhance time spent at home or in the office.</th>
+                        <th>Another budget friendly laptop but with an intel pentium processor, 4 gb of ram, and 1 TB of HDD storage including windows 10 and a HD webcam</th>
+                        <th>Desk with tempered glass top and metal legs and frame; two built-in storage shelves</th>
+                        <th>Single Marble Composition Notebook with 40 sheets</th>
                     </tr>
                 </table>
             </div>
