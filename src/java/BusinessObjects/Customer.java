@@ -7,10 +7,17 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+/*************
+*Customer BO
+*Spring 2019
+*Advanced Systems Project
+*Office Supplies Project
+************/
 public class Customer {
     
-    //Establishing Varaiables
+ /********************
+ *Variable Declarations
+**********************/
     
     int accID;
     String username;
@@ -24,15 +31,17 @@ public class Customer {
     int lastID;
     public Cart cart;
     
-    //just change this to wherever it's located on your computer
+ /*****************
+ *Database location
+*******************/
     String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/accounts_database.accdb");
     
     
     Path path = Paths.get("accounts_database.accdb");
     String database = path.toFile().getAbsolutePath();
     
-    //Constructors
     /**********************************************
+     * Constructors
      * @param accID the customer's id.
      * @param username the customer's username
      *  @param password the customer's password.
@@ -67,7 +76,9 @@ public class Customer {
         this.cardType = "";
     }
     
-    //Get and Set Methods
+/******************
+*Get and Set Methods
+*******************/
     public int getAccID(){
         return accID;
     }
@@ -124,9 +135,9 @@ public class Customer {
         this.cardType = e;
     }
     
-    // Methods below here
-    
-     //Select Method for login
+/********************
+*Customer Login Method
+*********************/
     public void selectCustomerLogin(String uname){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -152,7 +163,9 @@ public class Customer {
         }
     }
     
-    //Select Method
+/************
+*Select Method
+************/
     public void selectCustomer(int selID){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -177,7 +190,9 @@ public class Customer {
             System.out.println(e);
         }
     }
-     //Select Method
+/**************************
+*Select Last Customer Method
+****************************/
     public void selectLastCustomer(){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -196,7 +211,9 @@ public class Customer {
         }
     }
     
-    //Insert method
+/************
+*Insert Method
+************/
     public void insertCustomer(String accID, String username, String password, String fName, String lName, String email, String address, int cardNum, String cardType){
         try{
             
@@ -221,7 +238,9 @@ public class Customer {
         }
     }
     
-    //Update method
+/************
+*Update Method
+************/
     public void updateCustomer(){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -245,7 +264,9 @@ public class Customer {
         }
     }
     
-    //Delete method
+/************
+*Delete Method
+************/
     public void deleteCustomer(){
         try{
             Connection con = DriverManager.getConnection("jdbc:ucanaccess://"+database);
@@ -261,7 +282,9 @@ public class Customer {
         }
     }
     
-    //Display Method
+/**************
+*Display Method
+***************/
     public void Display(){
         System.out.println("Customer ID "+this.accID);
         System.out.println("Customer Username "+this.username);
@@ -273,7 +296,9 @@ public class Customer {
         System.out.println("Customer CardNumber "+this.cardNum);
         System.out.println("Customer CardType "+this.cardType);
     }
-    
+/***********
+*Main Method
+************/
     public static void main(String args[]){
     Customer cust1 = new Customer();
     cust1.selectCustomer(2);

@@ -1,7 +1,4 @@
-/**
- *
- * Cart Business object
- */
+
 package BusinessObjects;
 
 import java.nio.file.Path;
@@ -13,23 +10,34 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+/*************
+Cart BO
+Spring 2019
+Advanced Systems Project
+Office Supplies Project
+************/
 
 public class Cart {
-    
+/********************
+*Variable Declarations
+**********************/
     ArrayList<Item> cartList = new ArrayList<>();
     ArrayList<String> itemID = new ArrayList<>();
     ArrayList<String> quantity = new ArrayList<>();
     ArrayList<String> itemTable = new ArrayList<>();
     String custID;
 
-    //just change this to wherever it's located on your computer
+/*****************
+*Database location
+*******************/
     String accPath = "C:/Users/donov/Documents/accounts_database.accdb";
     String invPath = "C:/Users/donov/Documents/inventory_database.accdb";
     String accSql,invSql;
     
     
-// setter getter
+/******************
+*Get and Set Methods
+*******************/
     public String getCustID() {
         return custID;
     }
@@ -38,15 +46,19 @@ public class Cart {
         this.custID = custID;
     }
     
-//Constructor
-    
+/******************************
+ * Constructor
+ * @param custID customer's ID
+ ******************************/
     public Cart(String custID) {
         this.custID = custID;
     }
     public Cart() {
     }
     
-//Select Method
+/******************
+*Select Method
+*******************/
     public void selectDB() {
         try{
             Connection accCon = DriverManager.getConnection("jdbc:ucanaccess://"+accPath);
@@ -77,7 +89,10 @@ public class Cart {
             System.out.println("Other Exception: "+ex);
         }
     }
-//Insert Method
+    
+/******************
+*Insert Method
+*******************/
     public void insertDB(String itemID, String quantity, String itemTable) {
         try{
             Connection accCon = DriverManager.getConnection("jdbc:ucanaccess://"+accPath);
@@ -100,7 +115,10 @@ public class Cart {
             System.out.println("Other Exception: "+ex);
         }
     }
-//Update Method
+    
+/******************
+*Update Method
+*******************/
     public void updateDB(String itemID, String quantity){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -125,7 +143,10 @@ public class Cart {
             System.out.println("Other Exception: "+ex);
         }
     }
-//Delete Method
+    
+/******************
+*Delete Method
+*******************/
     public void deleteDB(String itemID){
         try{
             Connection accCon = DriverManager.getConnection("jdbc:ucanaccess://"+accPath);
@@ -149,7 +170,10 @@ public class Cart {
             System.out.println("Other Exception: "+ex);
         }
     }
-//Clear Cart Method
+    
+/******************
+*Clear cart Method
+*******************/
     public void clearDB(String custID){
         try{
             Connection accCon = DriverManager.getConnection("jdbc:ucanaccess://"+accPath);
@@ -173,7 +197,10 @@ public class Cart {
             System.out.println("Other Exception: "+ex);
         }
     }
-//Display Method
+    
+/******************
+*Display Method
+*******************/
     public void display(){
         for (int i = 0; i < cartList.size(); i++){
             cartList.get(i).display();

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Servlets;
 
 import BusinessObjects.Customer;
@@ -15,13 +11,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+/*************
+*Create Account Servlet
+*Spring 2019
+*Advanced Systems Project
+*Office Supplies Project
+************/
 
-/**
- *
- * @author GC3
- */
 @WebServlet(name = "CreateAccountServlet", urlPatterns = {"/CreateAccountServlet"})
 public class CreateAccountServlet extends HttpServlet {
+    
+    /***********************
+     * Variable Declarations
+     ***********************/
     int accID;
     String uname;
     String pw;
@@ -37,6 +39,10 @@ public class CreateAccountServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        
+            
+/********************************
+*Set variables with text box data
+*********************************/
         uname = request.getParameter("custNametb");
         pw = request.getParameter("custPasstb");
         fName = request.getParameter("fnametb");
@@ -47,7 +53,13 @@ public class CreateAccountServlet extends HttpServlet {
         cardType = request.getParameter("cardTypetb");
         cn = Integer.parseInt(cardNum);
         
-        
+    
+/***********************************
+*Create Customer Object 
+*Call last Customer Method
+*Insert new customer
+* set customer object into session
+*************************************/  
         try{
             Customer c1 = new Customer();
             c1.selectLastCustomer();

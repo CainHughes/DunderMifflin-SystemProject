@@ -16,10 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Madbr
- */
+/*************
+*OPP Login Servlet
+*Spring 2019
+*Advanced Systems Project
+*Office Supplies Project
+************/
 @WebServlet(name = "OPPLoginServlet", urlPatterns = {"/OPPLoginServlet"})
 public class OPPLoginServlet extends HttpServlet {
 
@@ -32,6 +34,9 @@ public class OPPLoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+     /***********************
+     * Variable Declarations
+     ***********************/
     String uname;
     String pw;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -39,13 +44,23 @@ public class OPPLoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+/********************************
+*Set variables with text box data
+*********************************/
                uname = request.getParameter("usernameTB");
                pw = request.getParameter("passwordTB");
        
+     /***********************
+     * create OPP object
+     * OPP select OPP login method
+     * OPP display method
+     ***********************/
              OPP o1 = new OPP();
              o1.selectOPPLogin(uname);
              o1.Display();
-      
+     /***********************
+     *Login Validation 
+     ***********************/
              if(pw.equals("")){
                  RequestDispatcher rd = request.getRequestDispatcher("/OPPloginError.jsp");
                           rd.forward(request, response);

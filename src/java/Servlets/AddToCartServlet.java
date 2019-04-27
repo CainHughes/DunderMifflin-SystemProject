@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Servlets;
 
 import BusinessObjects.Cart;
@@ -18,10 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-/**
- *
- * @author Donovan
- */
+/*************
+*Add to cart Servlet
+*Spring 2019
+*Advanced Systems Project
+*Office Supplies Project
+************/
 @WebServlet(name = "AddToCart", urlPatterns = {"/AddToCart"})
 public class AddToCartServlet extends HttpServlet {
 
@@ -30,7 +28,11 @@ public class AddToCartServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-            
+/***********************************
+*set variables with text box data
+*get customer object from session
+*insert cart with customer's ID
+*******************************/    
         try{
 
             String itemID = request.getParameter("itemID");
@@ -48,7 +50,7 @@ public class AddToCartServlet extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");

@@ -12,14 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author GC3
- */
+/*************
+*Edit Account Servlet
+*Spring 2019
+*Advanced Systems Project
+*Office Supplies Project
+************/
 @WebServlet(name = "EditAccountServlet", urlPatterns = {"/EditAccountServlet"})
 public class EditAccountServlet extends HttpServlet {
 
-   
+     /***********************
+     * Variable Declarations
+     ***********************/
     int accID;
     String uname;
     String pw;
@@ -34,7 +38,9 @@ public class EditAccountServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+/********************************
+*Set variables with text box data
+*********************************/
         uname = request.getParameter("custNametb");
         pw = request.getParameter("custPasstb");
         fName = request.getParameter("fnametb");
@@ -46,7 +52,12 @@ public class EditAccountServlet extends HttpServlet {
         cn = Integer.parseInt(cardNum);
         Customer c1;
         
-        
+/**************************************************
+*get customer object from session
+* set customer's variables 
+* update customer
+* set customer object back into session with update
+******************************************************/
         try{
             HttpSession ses1;
             ses1 = request.getSession();

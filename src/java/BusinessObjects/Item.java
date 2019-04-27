@@ -3,7 +3,18 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.*;
 
+/*************
+*Item BO
+*Spring 2019
+*Advanced Systems Project
+*Office Supplies Project
+************/
+
 public class Item {
+    
+/********************
+*Variable Declarations
+**********************/
     String ItemID;
     String ItemName;
     int Stock;
@@ -19,10 +30,21 @@ public class Item {
     String[] ModelNumArray;
     String[] DescriptionArray;
     
+/*****************
+*Database location
+*******************/
     String database = "C:/Users/Cain/Desktop/inventory_database.accdb";
     
-    
-    //Constructors
+    /*****************************************
+     * Constructors
+     * @param ItemID the item's ID
+     * @param ItemName the item's name
+     * @param Stock the item's amount in stock
+     * @param Price the item's price
+     * @param Manu the item's manufacturer
+     * @param ModelNum the item's model number
+     * @param Description the item's description
+     ********************************************/
     public Item(String ItemID, String ItemName, int Stock, double Price, String Manu, String ModelNum, String Description){
         this.ItemID = ItemID;
         this.ItemName = ItemName;
@@ -41,7 +63,9 @@ public class Item {
         this.ModelNum = "";
         this.Description = "";
     }
-    //Get and Set Methods
+/******************
+*Get and Set Methods
+*******************/
     public String getItemID(){
         return ItemID;
     }
@@ -84,9 +108,9 @@ public class Item {
     public String[] getItemIDArray(){
         return ItemIDArray;
     }
-    //////////////////////////////////////////////////////////////////
-    //Select, Insert, Update, and Delete Methods for Electronics Table
-    
+/************************
+*Electronic Select Method
+************************/
     //Select Method
     public void selectElectronic(String ID){
    
@@ -110,7 +134,9 @@ public class Item {
                 System.out.println(e);
         }
     }
-    //Insert Method
+/************************
+*Electronic Insert Method
+************************/
     public void insertElectronic(String ItemID, String ItemName, int Stock, double Price, String Manu, String ModelNum, String Description){
  
         try{
@@ -133,7 +159,9 @@ public class Item {
             System.out.println(e);
         }
     }
-   //Update Method
+/************************
+*Electronic Update Method
+************************/
    public void updateElectronic(){
         try{
             Connection con =
@@ -154,7 +182,9 @@ public class Item {
             System.out.println(e);
         }
    }
-   //Delete Method
+/************************
+*Electronic Delete Method
+************************/
    public void deleteElectronic(){
         try{
             Connection con =
@@ -170,10 +200,9 @@ public class Item {
             System.out.println(e);
         }
    }
-   //////////////////////////////////////////////////////////////////
-   //Select, Insert, Update, and Delete Methods for Decoration Table
-   
-   //Select Method
+/************************
+*Decoration Select Method
+************************/
     public void selectDecoration(String ID){
    
         try{
@@ -196,7 +225,9 @@ public class Item {
                 System.out.println(e);
         }
     }
-    //Select All Method
+/*****************************
+*Decoration Select All Method
+******************************/
     public void selectAllDecoration(){
          try{
             Connection con =
@@ -229,7 +260,9 @@ public class Item {
                 System.out.println(e);
         }
     }
-    //Insert Method
+/************************
+*Decoration Insert Method
+************************/
     public void insertDecoration(String ItemID, String ItemName, int Stock, double Price, String Manu, String ModelNum, String Description){
  
         try{
@@ -252,7 +285,9 @@ public class Item {
             System.out.println(e);
         }
     }
-   //Update Method
+/************************
+*Decoration Update Method
+************************/
    public void updateDecoration(){
         try{
             Connection con =
@@ -273,7 +308,9 @@ public class Item {
             System.out.println(e);
         }
    }
-   //Delete Method
+/************************
+*Decoration Delete Method
+************************/
    public void deleteDecoration(){
         try{
             Connection con =
@@ -290,10 +327,9 @@ public class Item {
         }
    }
    
-   //////////////////////////////////////////////////////////////////
-   //Select, Insert, Update, and Delete Methods for Furniture Table
-   
-    //Select Method
+/************************
+*Furniture Select Method
+************************/
     public void selectFurniture(String ID){
    
         try{
@@ -316,7 +352,9 @@ public class Item {
                 System.out.println(e);
         }
     }
-    //Select All Furniture
+/***************************
+*Furniture Select All Method
+****************************/
     public void selectAllFurniture(){
          try{
             Connection con =
@@ -339,7 +377,9 @@ public class Item {
                 System.out.println(e);
         }
     }
-    //Insert Method
+/************************
+*Furniture Insert Method
+************************/
     public void insertFurniture(String ItemID, String ItemName, int Stock, double Price, String Manu, String ModelNum, String Description){
  
         try{
@@ -362,7 +402,9 @@ public class Item {
             System.out.println(e);
         }
     }
-   //Update Method
+/************************
+*Furniture Update Method
+************************/
    public void updateFurniture(){
         try{
             Connection con =
@@ -383,7 +425,9 @@ public class Item {
             System.out.println(e);
         }
    }
-   //Delete Method
+/************************
+*Furniture Delete Method
+************************/
    public void deleteFurniture(){
         try{
             Connection con =
@@ -399,10 +443,9 @@ public class Item {
             System.out.println(e);
         }
    }
-   //////////////////////////////////////////////////////////////////
-   //Select, Insert, Update, and Delete Methods for WritingPaper Table
-      
-    //Select Method
+/************************
+*Paper Select Method
+************************/
     public void selectPaper(String ID){
    
         try{
@@ -425,7 +468,9 @@ public class Item {
                 System.out.println(e);
         }
     }
-    //Insert Method
+/************************
+*Paper Insert Method
+************************/
     public void insertPaper(String ItemID, String ItemName, int Stock, double Price, String Manu, String ModelNum, String Description){
  
         try{
@@ -448,7 +493,9 @@ public class Item {
             System.out.println(e);
         }
     }
-   //Update Method
+/************************
+*Paper Update Method
+************************/
    public void updatePaper(){
         try{
             Connection con =
@@ -469,7 +516,9 @@ public class Item {
             System.out.println(e);
         }
    }
-   //Delete Method
+/************************
+*Paper Delete Method
+************************/
    public void deletePaper(){
         try{
             Connection con =
@@ -486,8 +535,9 @@ public class Item {
         }
    }
    
-  ////////////////  
-  //Display Method
+/************************
+*Display items Method
+************************/
     public void display(){
         System.out.println("Item ID: " + this.ItemID);
         System.out.println("Item Name: " + this.ItemName);
@@ -497,6 +547,9 @@ public class Item {
         System.out.println("Model Number: " + this.ModelNum);
         System.out.println("Description: " + this.Description);
     }
+/************************
+*Main Method
+************************/
     public static void main(String[] args){
         Item i1 = new Item();
         i1.selectAllDecoration();

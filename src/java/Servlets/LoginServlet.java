@@ -18,9 +18,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+/*************
+*Login Servlet
+*Spring 2019
+*Advanced Systems Project
+*Office Supplies Project
+************/
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
+     /***********************
+     * Variable Declarations
+     ***********************/
     String uname;
     String pw;
  
@@ -29,15 +37,28 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
          
+/********************************
+*Set variables with text box data
+*********************************/
         uname = request.getParameter("usernameTB");
         pw = request.getParameter("passwordTB");
        
+        
+/********************************
+*create customer object
+*customer select customer login method
+*create customer cart object
+*cart select method
+*cart display method
+*********************************/
         Customer c1 = new Customer();
         c1.selectCustomerLogin(uname);
         c1.cart = new Cart(Integer.toString(c1.getAccID()));
         c1.cart.selectDB();
         c1.Display();
-      
+/********************************
+*Login Validation 
+*********************************/      
        if(pw.equals("")){
            RequestDispatcher rd = request.getRequestDispatcher("/LoginError.jsp");
                     rd.forward(request, response);

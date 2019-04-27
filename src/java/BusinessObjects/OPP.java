@@ -8,23 +8,39 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/*************
+*OPP BO
+*Spring 2019
+*Advanced Systems Project
+*Office Supplies Project
+************/
 public class OPP {
     
-    //Establishing Varaiables
-    
+/********************
+ Variable Declarations
+**********************/
     int accID;
     String username;
     String password;
     String fName;
     String lName;
     
-    //just change this to wherever it's located on your computer
+/*****************
+ *Database location
+*******************/
     String yourDatabase = ("jdbc:ucanaccess://C:/Users/Madbr/Downloads/accounts_database.accdb");
     
     Path path = Paths.get("accounts_database.accdb");
     String database = path.toFile().getAbsolutePath();
     
-    //Constructors
+    /********************************
+     * Constructors
+     * @param accID the OPP ID
+     * @param username the OPP username
+     * @param password the OPP password
+     * @param fName the OPP first name
+     * @param lName the OPP last name
+     *********************************/
     public OPP(int accID, String username, String password, String fName, String lName){
         this.accID = accID;
         this.username = username;
@@ -41,7 +57,9 @@ public class OPP {
         this.lName = "";
     }
     
-    //Get and Set Methods
+/******************
+*Get and Set Methods
+*******************/
     public int getAccID(){
         return accID;
     }
@@ -74,8 +92,9 @@ public class OPP {
     }
     
     
-    // Methods below here
-     //Select Method for login
+/********************
+*OPP Login Method
+*********************/
     public void selectOPPLogin(String uname){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -96,7 +115,9 @@ public class OPP {
             System.out.println(e);
         }
     }
-    //Select Method
+/********************
+*Select Method
+*********************/
     public void selectOPP(int selID){
         try{
             Connection con = DriverManager.getConnection("jdbc:ucanaccess://"+database);
@@ -116,8 +137,10 @@ public class OPP {
             System.out.println(e);
         }
     }
-    
-    //Insert method
+   
+/********************
+ * Insert Method
+*********************/
     public void insertOPP(String accID, String username, String password, String fName, String lName){
         try{
             Connection con =
@@ -138,7 +161,9 @@ public class OPP {
         }
     }
     
-    //Update method
+ /********************
+*Update Method
+*********************/
     public void updateOPP(){
         try{
             Connection con = DriverManager.getConnection("jdbc:ucanaccess://"+database);
@@ -156,7 +181,9 @@ public class OPP {
         }
     }
     
-    //Delete method
+/********************
+*Delete Method
+*********************/
     public void deleteOPP(){
         try{
             Connection con = DriverManager.getConnection("jdbc:ucanaccess://"+database);
@@ -172,7 +199,9 @@ public class OPP {
         }
     }
     
-    //Display Method
+/********************
+* Display Method
+*********************/
     public void Display(){
         System.out.println("Customer ID "+this.accID);
         System.out.println("Customer Username "+this.username);
@@ -180,7 +209,9 @@ public class OPP {
         System.out.println("Customer FirstName "+this.fName);
         System.out.println("Customer LastName "+this.lName);
     }
-    
+/********************
+*Main Method
+*********************/
     public static void main(String args[]){
         OPP opp1 = new OPP();
         opp1.selectOPP(3);
