@@ -3,7 +3,33 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/GC3/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/Homepage.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/CreateAccount.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/src/java/Servlets/OPPLoginServlet.java</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/electronic.jpg</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/SystemProjectCSS.css</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/Electronic.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/ViewAccount.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/supplies.jpg</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/paperWriting.png</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/PaperWriting.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/OPPlogin.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/src/java/BusinessObjects/OPP.java</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/LoginError.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/src/java/BusinessObjects/Item.java</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/Furniture.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/EditAccount.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/OPPloginError.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/src/java/Servlets/AddToCartServlet.java</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/index.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/Homepage.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/src/java/BusinessObjects/Customer.java</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/Decoration.jsp</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/src/java/Servlets/EditAccountServlet.java</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/furniture.jpg</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/src/java/BusinessObjects/Cart.java</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/src/java/Servlets/LoginServlet.java</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/decoration.jpg</file>
+            <file>file:/C:/Users/Donov/Documents/NetBeansProjects/DunderMifflin-SystemProject/web/OPOrders.jsp</file>
         </group>
     </open-files>
 </project-private>
