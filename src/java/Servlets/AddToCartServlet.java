@@ -38,9 +38,10 @@ public class AddToCartServlet extends HttpServlet {
             String itemID = request.getParameter("itemID");
             String quantity = request.getParameter("quantity");
             String databaseLocation = request.getParameter("databaseLocation");
+            String shipped = ("No");
             HttpSession ses1 = request.getSession();
             Customer c1 = (Customer) ses1.getAttribute("c1");
-            c1.cart.insertDB(itemID, quantity, databaseLocation);
+            c1.cart.insertDB(itemID, quantity, databaseLocation, shipped);
             RequestDispatcher rd = request.getRequestDispatcher("/Homepage.jsp");
             rd.forward(request, response);
         }

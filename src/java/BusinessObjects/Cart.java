@@ -21,10 +21,11 @@ public class Cart {
 /********************
 *Variable Declarations
 **********************/
-    ArrayList<Item> cartList = new ArrayList<>();
+    public ArrayList<Item> cartList = new ArrayList<>();
     ArrayList<String> itemID = new ArrayList<>();
-    ArrayList<String> quantity = new ArrayList<>();
+    public ArrayList<String> quantity = new ArrayList<>();
     ArrayList<String> itemTable = new ArrayList<>();
+    public ArrayList<String> shipped = new ArrayList<>();
     String custID;
 
 /*****************
@@ -73,6 +74,7 @@ public class Cart {
                 itemID.add(accRs.getString(2));
                 quantity.add(accRs.getString(3));
                 itemTable.add(accRs.getString(4));
+                shipped.add(accRs.getString(5));
                 invSql = "select * from "+ accRs.getString(4) +" where ID = "+ accRs.getString(2)+";";
                 System.out.println(invSql);
                 ResultSet invRs = invStmt.executeQuery(invSql);
@@ -93,11 +95,11 @@ public class Cart {
 /******************
 *Insert Method
 *******************/
-    public void insertDB(String itemID, String quantity, String itemTable) {
+    public void insertDB(String itemID, String quantity, String itemTable, String shipped) {
         try{
             Connection accCon = DriverManager.getConnection("jdbc:ucanaccess://"+accPath);
             Statement stmt = accCon.createStatement();
-            String sql = "INSERT into Cart values ("+custID+","+itemID+","+quantity+",'"+itemTable+"')";
+            String sql = "INSERT into Cart values ("+custID+","+itemID+","+quantity+",'"+itemTable+"','"+shipped+"');";
             System.out.println(sql);
             int rs = stmt.executeUpdate(sql);
             if (rs == 1){

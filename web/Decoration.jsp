@@ -11,7 +11,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%!  String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/inventory_database.accdb");
+<%!  String yourDatabase = ("jdbc:ucanaccess://C:/Users/donov/Documents/inventory_database.accdb");
 
     %>
 <html>

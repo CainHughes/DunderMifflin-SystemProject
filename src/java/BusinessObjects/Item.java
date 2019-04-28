@@ -33,7 +33,7 @@ public class Item {
 /*****************
 *Database location
 *******************/
-    String database = "C:/Users/Cain/Desktop/inventory_database.accdb";
+    String database = "C:/Users/donov/Documents/inventory_database.accdb";
     
     /*****************************************
      * Constructors

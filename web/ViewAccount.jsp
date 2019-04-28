@@ -3,6 +3,8 @@
     Created on : Apr 16, 2019, 8:39:57 PM
     Author     : GC3
 --%>
+<%@page import="BusinessObjects.Cart"%>
+<%@page import="BusinessObjects.Item"%>
 <%@page import="BusinessObjects.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -82,11 +84,33 @@
                    Card Type: <%= cardType %> </p>
             <a href="EditAccount.jsp">Edit/Update Account</a>
             <h2>Purchased Items</h2>
-            <table border ="1">
-                <th>Item Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Date Ordered</th>
+            <table  border ="1">
+                <caption>Your Accounts</caption>
+            <%
+                c1.cart = new Cart(Integer.toString(c1.getAccID()));
+                c1.cart.selectDB();
+                for (int i = 0; i < c1.cart.cartList.size(); i++){
+            %>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>quantity</th>
+                    <th>shipped</th>
+                </tr>
+            <%
+                    Item i1 = c1.cart.cartList.get(i);
+            %>
+                <tr>
+                    <td><%=i1.getItemName()%></td>
+                    <td><%=i1.getDescription()%></td>
+                    <td><%=i1.getPrice()%></td>
+                    <td><%=c1.cart.quantity.get(i)%></td>
+                    <td><%=c1.cart.shipped.get(i)%></td>
+                </tr>
+            <%
+                }
+            %>
             </table>
             </div>
         </div>
