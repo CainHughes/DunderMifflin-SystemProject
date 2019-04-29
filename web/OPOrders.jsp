@@ -4,8 +4,13 @@
     Author     : Madbr
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel = "stylesheet" type = "text/css" href = "SystemProjectCSS.css" />
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,29 +23,78 @@
         </style>
     </head>
     <body>
-     <form name="orders" method="post" action="OrderStatusServlet">   
-         <h1>Orders</h1>
-    <table>
-      <tr>
-       <th>Order ID</th>
-       <th>Customer ID</th>
-       <th>Status</th>
-      </tr>
-      
-     <tr>
-       <td> 12 </td>
-       <td>  3 </td>
-       <td>  <select id="status" name="status">
-           <option value="Open">Open</option>
-           <option value="Shipped">Shipped</option>
-         </select> </td>
-     </tr> 
-
-    </table> 
-        <input type="submit" value="Submit">
-    </form>
-        <form name="logout" action="index.jsp">
+          <form name="logout" action="index.jsp">
             <input type="submit" name='logoutBtn' value='Logout'>
-        </form>
+        </form> 
+     
+         <h1>Orders Waiting To Be Shipped</h1>
+      <div class="table">   <table border = ".5" width = "100%" bgcolor="green">
+                <th>Customer ID</th>
+                <th>Item ID</th>
+                <th>Quantity</th>
+                <th>Item Table</th>
+                <th>Shipped</th>
+                <%  try{
+            String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/accounts_database.accdb");
+            Connection con =
+            DriverManager.getConnection(yourDatabase);
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * from Cart WHERE shipped = 'No'";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){ %>
+                <tr>
+                    
+                <td><%= rs.getString("custID") %> </td>
+                <td><%= rs.getString("itemID") %></td>
+                <td><%= rs.getString("quantity") %></td>
+                <td><%= rs.getString("itemTable") %></td>
+                <td><%= rs.getString("shipped") %></td>
+                </tr>
+         <%}
+            con.close();
+        }
+        catch(Exception e){
+                System.out.println(e);
+        }
+                
+                    %>
+            </table>
+    <form name="orders" method="post" action="OPOrderServlet">   
+            <p align = center> Customer ID:
+            <input type="text" name="shipTB"> 
+            <input type="submit" value="Ship Order"> </p>
+    </form>
+      
+                 <h1>Orders That Have Been Shipped</h1>
+      <div class="table">   <table border = ".5" width = "100%" bgcolor="green">
+                <th>Customer ID</th>
+                <th>Item ID</th>
+                <th>Quantity</th>
+                <th>Item Table</th>
+                <th>Shipped</th>
+                <%  try{
+            String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/accounts_database.accdb");
+            Connection con =
+            DriverManager.getConnection(yourDatabase);
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * from Cart WHERE shipped = 'Yes'";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){ %>
+                <tr> 
+                <td><%= rs.getString("custID") %> </td>
+                <td><%= rs.getString("itemID") %></td>
+                <td><%= rs.getString("quantity") %></td>
+                <td><%= rs.getString("itemTable") %></td>
+                <td><%= rs.getString("shipped") %></td>
+                </tr>
+         <%}
+            con.close();
+        }
+        catch(Exception e){
+                System.out.println(e);
+        }
+                
+                    %>
+            </table>
     </body>
 </html>
