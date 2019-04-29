@@ -34,7 +34,7 @@
       
             <div class="top1" >
                 <a href="index.jsp">Login Here</a>
-                <a href="GuestViewCart.jsp">View Cart</a>
+                <a href="ViewCart.jsp">View Cart</a>
                   
             </div>
         </div>
@@ -43,9 +43,9 @@
                 <ul>
                      <li><a href="GuestHomePage.jsp">All Products</a></li>
                      <li><a href="GuestDecoration.jsp">Decor</a></li>
-                     <li><a href="Electronic.jsp">Electronics</a></li>
-                     <li><a href="Furniture.jsp">Furniture</a></li>
-                     <li><a href="PaperWriting.jsp">Paper & Writing</a></li>
+                     <li><a href="GuestElectronic.jsp">Electronics</a></li>
+                     <li><a href="GuestFurniture.jsp">Furniture</a></li>
+                     <li><a href="GuestPaperWriting.jsp">Paper & Writing</a></li>
                 </ul>
             </div>
         

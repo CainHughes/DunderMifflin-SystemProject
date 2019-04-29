@@ -35,7 +35,7 @@
         </div>
             <div class="top1" >
                 <a href="index.jsp">Login Here</a>
-                <a href="GuestViewCart.jsp">View Cart</a>
+                <a href="ViewCart.jsp">View Cart</a>
             </div>
         </div>
         
