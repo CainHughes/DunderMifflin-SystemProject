@@ -31,8 +31,8 @@ public class Cart {
 /*****************
 *Database location
 *******************/
-    String accPath = "C:/Users/donov/Documents/accounts_database.accdb";
-    String invPath = "C:/Users/donov/Documents/inventory_database.accdb";
+    String accPath = "C:/Users/GC3/Desktop/accounts_database.accdb";
+    String invPath = "C:/Users/GC3/Desktop/inventory_database.accdb";
     String accSql,invSql;
     
     

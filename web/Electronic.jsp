@@ -10,7 +10,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%!  String yourDatabase = ("jdbc:ucanaccess://C:/Users/donov/Documents/inventory_database.accdb");
+<%!  String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/inventory_database.accdb");
 
     %>
 <html>
@@ -33,18 +33,16 @@
         </form>
         </div>
             <div class="top1" >
-                <a href="#index.jsp">Login Here</a>
-                <a href="#ViewCart.jsp"> View Cart</a>
             </div>
         </div>
         
             <div class="middle">
                 <ul>
-                     <li><a href="AllProducts.jsp">All Products</a></li>
+                     <li><a href="Homepage.jsp">All Products</a></li>
                      <li><a href="Decoration.jsp">Decor</a></li>
                      <li><a href="Electronic.jsp">Electronics</a></li>
                      <li><a href="Furniture.jsp">Furniture</a></li>
-                     <li><a href="#AllProducts.jspW/PaperWritingFilter">Paper & Writing</a></li>
+                     <li><a href="PaperWriting.jsp">Paper & Writing</a></li>
                      <li><a href="ViewAccount.jsp">My Account</a></li>
                 </ul>
             </div>

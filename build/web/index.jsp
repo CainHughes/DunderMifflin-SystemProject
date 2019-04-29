@@ -21,7 +21,7 @@
         <p align = center> Password:
             <input type="text" name="passwordTB"> </p> 
         <p align = center><a href="CreateAccount.jsp">Create Account</a>
-            <a href="null">Continue as guest</a>
+            <a href="GuestHomePage.jsp">Continue as guest</a>
         <a href="OPPlogin.jsp">Order Processing Login</a></p>
         <div style="text-align:center;">
         <input type="submit" name='logBtn' value='Login' class="button" align="center"> 

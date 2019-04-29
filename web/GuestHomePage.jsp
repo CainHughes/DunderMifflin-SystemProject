@@ -1,4 +1,10 @@
 <%-- 
+    Document   : GuestHomePage
+    Created on : Apr 28, 2019, 8:47:51 PM
+    Author     : GC3
+--%>
+
+<%-- 
     Document   : Homepage
     Created on : Mar 8, 2019, 1:37:48 PM
 --%>
@@ -25,32 +31,21 @@
               <button>Search</button></p>
         </form>
         </div>
-            <%! Customer c1;
-                String fName;
-                %>
-              <% try{
-                HttpSession ses1;
-                ses1 = request.getSession();
-                c1 = (Customer)ses1.getAttribute("c1");
-                fName = c1.getFName();     
-                }
-               catch(Exception e){
-               }
-            %>
+      
             <div class="top1" >
-                <p>Hello, <%= fName %>!
+                <a href="index.jsp">Login Here</a>
+                <a href="GuestViewCart.jsp">View Cart</a>
                   
             </div>
         </div>
         
             <div class="middle">
                 <ul>
-                     <li><a href="Homepage.jsp">All Products</a></li>
-                     <li><a href="Decoration.jsp">Decor</a></li>
+                     <li><a href="GuestHomePage.jsp">All Products</a></li>
+                     <li><a href="GuestDecoration.jsp">Decor</a></li>
                      <li><a href="Electronic.jsp">Electronics</a></li>
                      <li><a href="Furniture.jsp">Furniture</a></li>
                      <li><a href="PaperWriting.jsp">Paper & Writing</a></li>
-                     <li><a href="ViewAccount.jsp">My Account</a></li>
                 </ul>
             </div>
         

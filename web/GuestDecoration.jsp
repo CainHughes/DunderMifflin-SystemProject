@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Decoration
-    Created on : Apr 17, 2019, 9:22:49 PM
+    Document   : GuestDecoration
+    Created on : Apr 28, 2019, 8:53:48 PM
     Author     : GC3
 --%>
 
@@ -34,17 +34,19 @@
         </form>
         </div>
             <div class="top1" >
+                <a href="index.jsp">Login Here</a>
+                <a href="GuestViewCart.jsp">View Cart</a>
             </div>
         </div>
         
             <div class="middle">
                 <ul>
-                     <li><a href="Homepage.jsp">All Products</a></li>
-                     <li><a href="Decoration.jsp">Decor</a></li>
-                     <li><a href="Electronic.jsp">Electronics</a></li>
-                     <li><a href="Furniture.jsp">Furniture</a></li>
-                     <li><a href="PaperWriting.jsp">Paper & Writing</a></li>
-                     <li><a href="ViewAccount.jsp">My Account</a></li>
+                     <li><a href="GuestHomePage.jsp">All Products</a></li>
+                     <li><a href="GuestDecoration.jsp">Decor</a></li>
+                     <li><a href="GuestElectronic.jsp">Electronics</a></li>
+                     <li><a href="GuestFurniture.jsp">Furniture</a></li>
+                     <li><a href="GuestPaperWriting.jsp">Paper & Writing</a></li>
+                    
                 </ul>
             </div>
         </div>

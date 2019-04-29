@@ -28,7 +28,7 @@ public class OPP {
 /*****************
  *Database location
 *******************/
-    String yourDatabase = ("jdbc:ucanaccess://C:/Users/donov/Documents/accounts_database.accdb");
+    String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/accounts_database.accdb");
     
     Path path = Paths.get("accounts_database.accdb");
     String database = path.toFile().getAbsolutePath();

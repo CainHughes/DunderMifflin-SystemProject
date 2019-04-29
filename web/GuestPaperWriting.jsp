@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Decoration
-    Created on : Apr 17, 2019, 9:22:49 PM
+    Document   : GuestPaperWriting
+    Created on : Apr 28, 2019, 9:00:46 PM
     Author     : GC3
 --%>
 
@@ -17,7 +17,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Decoration Catalog</title>
+        <title>Paper/Writing Catalog</title>
         <link rel = "stylesheet" type = "text/css" href = "SystemProjectCSS.css" />
     </head>
     <body>
@@ -34,29 +34,30 @@
         </form>
         </div>
             <div class="top1" >
+                <a href="index.jsp">Login Here</a>
+                <a href="GuestViewCart.jsp">View Cart</a>
             </div>
         </div>
         
             <div class="middle">
                 <ul>
-                     <li><a href="Homepage.jsp">All Products</a></li>
-                     <li><a href="Decoration.jsp">Decor</a></li>
-                     <li><a href="Electronic.jsp">Electronics</a></li>
-                     <li><a href="Furniture.jsp">Furniture</a></li>
-                     <li><a href="PaperWriting.jsp">Paper & Writing</a></li>
-                     <li><a href="ViewAccount.jsp">My Account</a></li>
+                     <li><a href="GuestHomePage.jsp">All Products</a></li>
+                     <li><a href="GuestDecoration.jsp">Decor</a></li>
+                     <li><a href="GuestElectronic.jsp">Electronics</a></li>
+                     <li><a href="GuestFurniture.jsp">Furniture</a></li>
+                     <li><a href="GuestPaperWriting.jsp">Paper & Writing</a></li>
                 </ul>
             </div>
         </div>
             
             
-        <h2>Decoration Catalog</h2>
-        <img src="decoration.jpg" height="200" width="400"/>
-        <p>Type decoration ID# here to add to cart</p>
+        <h2>Paper/Writing Catalog</h2>
+        <img src="paperWriting.png" height="200" width="400"/>
+        <p>Type paper/writing ID# here to add to cart</p>
 	<form action="AddToCart" method="post">
             <input type="number" id="itemID" name="itemID" placeholder="Enter ID Here">
             <input type="number" id="quantity" name="quantity" placeholder="Quantity">
-            <input type="text" name="databaseLocation" value="Decoration">
+            <input type="text" name="databaseLocation" value="Writing_paper">
             <input type="submit" value="Add To Cart">
 	</form>
         <div class="table">   <table border = ".5" width = "100%" bgcolor="green">
@@ -71,7 +72,7 @@
             Connection con =
             DriverManager.getConnection(yourDatabase);
             Statement stmt = con.createStatement();
-            String sql = "SELECT * from Decoration";
+            String sql = "SELECT * from Writing_paper";
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()){ %>
                 <tr>

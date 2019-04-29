@@ -28,14 +28,12 @@
         </form>
         </div>
             <div class="top1" >
-                <a href="#index.jsp">Login Here</a>
-                <a href="#ViewCart.jsp"> View Cart</a>
             </div>
         </div>
         
             <div class="middle">
                 <ul>
-                     <li><a href="AllProducts.jsp">All Products</a></li>
+                     <li><a href="Homepage.jsp">All Products</a></li>
                      <li><a href="Decoration.jsp">Decor</a></li>
                      <li><a href="Electronic.jsp">Electronics</a></li>
                      <li><a href="Furniture.jsp">Furniture</a></li>
@@ -85,7 +83,7 @@
             <a href="EditAccount.jsp">Edit/Update Account</a>
             <h2>Purchased Items</h2>
             <table  border ="1">
-                <caption>Your Accounts</caption>
+                <caption>Recent Transactions</caption>
             <%
                 c1.cart = new Cart(Integer.toString(c1.getAccID()));
                 c1.cart.selectDB();
@@ -104,7 +102,7 @@
                 <tr>
                     <td><%=i1.getItemName()%></td>
                     <td><%=i1.getDescription()%></td>
-                    <td><%=i1.getPrice()%></td>
+                    <td>$<%=i1.getPrice()%></td>
                     <td><%=c1.cart.quantity.get(i)%></td>
                     <td><%=c1.cart.shipped.get(i)%></td>
                 </tr>
