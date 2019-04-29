@@ -20,21 +20,52 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "GuestServlet", urlPatterns = {"/GuestServlet"})
 public class GuestServlet extends HttpServlet {
-
-
+    
+    /***********************
+     * Variable Declarations
+     ***********************/
+    int accID;
+    String uname = "guest";
+    String pw = "guest";
+    String fName = "guest";
+    String lName = "guest";
+    String email = "guest@guest.com";
+    String address = "guestaddress";
+    String cardType = "guest";
+    int cn = 000;
+ 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Customer c1 = new Customer();
-        c1.cart = new Cart(Integer.toString(c1.getAccID()));
-         HttpSession hs1;
-         hs1 = request.getSession();
-         hs1.setAttribute("c1", c1);
+       
         
-        
-        
-        RequestDispatcher rd = request.getRequestDispatcher("/GuestHomePage.jsp");
-                    rd.forward(request, response);
+    
+/***********************************
+*Creates customer object
+*Populates customer object with guest information
+*initializes cart object inside customer object
+*Automatically logins to guest account
+*************************************/  
+        try{
+            Customer c1 = new Customer();
+            c1.selectLastCustomer();
+            accID = c1.getAccID();
+            String ID = Integer.toString(accID);
+            uname = (uname+Integer.toString(accID));
+            c1.insertCustomer(ID,uname, pw, fName, lName, email, address, cn, cardType);
+            c1.selectCustomerLogin(uname);
+            c1.cart = new Cart(Integer.toString(c1.getAccID()));
+            c1.cart.selectDB();
+            HttpSession ses1;
+            ses1 = request.getSession();
+            ses1.setAttribute("c1", c1);
+            System.out.println("Customer was added to the session");
+                RequestDispatcher rd = request.getRequestDispatcher("/GuestHomePage.jsp");
+                    rd.forward(request, response);   
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
