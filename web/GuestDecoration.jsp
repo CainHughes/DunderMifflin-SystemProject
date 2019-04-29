@@ -11,7 +11,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%!  String yourDatabase = ("jdbc:ucanaccess://C:/Users/GC3/Desktop/inventory_database.accdb");
+<%!  String yourDatabase = ("jdbc:ucanaccess://C:/Users/Cain/Desktop/inventory_database.accdb");
 
     %>
 <html>
@@ -41,12 +41,12 @@
         
             <div class="middle">
                 <ul>
-                     <li><a href="GuestHomePage.jsp">All Products</a></li>
-                     <li><a href="GuestDecoration.jsp">Decor</a></li>
-                     <li><a href="GuestElectronic.jsp">Electronics</a></li>
-                     <li><a href="GuestFurniture.jsp">Furniture</a></li>
-                     <li><a href="GuestPaperWriting.jsp">Paper & Writing</a></li>
-                    
+                     <li><a href="Homepage.jsp">All Products</a></li>
+                     <li><a href="Decoration.jsp">Decor</a></li>
+                     <li><a href="Electronic.jsp">Electronics</a></li>
+                     <li><a href="Furniture.jsp">Furniture</a></li>
+                     <li><a href="PaperWriting.jsp">Paper & Writing</a></li>
+                     <li><a href="ViewAccount.jsp">My Account</a></li>
                 </ul>
             </div>
         </div>
@@ -59,7 +59,7 @@
             <input type="number" id="itemID" name="itemID" placeholder="Enter ID Here">
             <input type="number" id="quantity" name="quantity" placeholder="Quantity">
             <input type="text" name="databaseLocation" value="Decoration">
-            <input type="submit" value="Add To Cart">
+            <input type="submit" value="Confirm Purchase">
 	</form>
         <div class="table">   <table border = ".5" width = "100%" bgcolor="green">
                 <th>ID</th>
