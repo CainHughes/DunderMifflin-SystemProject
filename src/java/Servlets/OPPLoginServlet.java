@@ -70,7 +70,7 @@ public class OPPLoginServlet extends HttpServlet {
                       ses1 = request.getSession();
                       ses1.setAttribute("o1", o1);
             
-                  RequestDispatcher rd = request.getRequestDispatcher("////Homepage.jsp");
+                  RequestDispatcher rd = request.getRequestDispatcher("/OPOrders.jsp");
                           rd.forward(request, response);
               }
               else{
