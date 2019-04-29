@@ -39,7 +39,8 @@
             %>
             <div class="top1" >
                 <p>Hello, <%= fName %>!
-                  
+                    <a href="index.jsp">Sign Out</a>
+                </p>
             </div>
         </div>
         

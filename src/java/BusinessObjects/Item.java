@@ -115,6 +115,7 @@ public class Item {
     public void selectElectronic(String ID){
    
         try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection con =
             DriverManager.getConnection("jdbc:ucanaccess://"+database);
             Statement stmt = con.createStatement();
@@ -206,6 +207,7 @@ public class Item {
     public void selectDecoration(String ID){
    
         try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection con =
             DriverManager.getConnection("jdbc:ucanaccess://"+database);
             Statement stmt = con.createStatement();
@@ -333,6 +335,7 @@ public class Item {
     public void selectFurniture(String ID){
    
         try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection con =
             DriverManager.getConnection("jdbc:ucanaccess://"+database);
             Statement stmt = con.createStatement();
@@ -449,6 +452,7 @@ public class Item {
     public void selectPaper(String ID){
    
         try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection con =
             DriverManager.getConnection("jdbc:ucanaccess://"+database);
             Statement stmt = con.createStatement();

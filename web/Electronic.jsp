@@ -56,7 +56,7 @@
             <input type="number" id="itemID" name="itemID" placeholder="Enter ID Here">
             <input type="number" id="quantity" name="quantity" placeholder="Quantity">
             <input type="text" name="databaseLocation" value="Electronics">
-            <input type="submit" value="Add To Cart">
+            <input type="submit" value="Confirm Purchase">
 	</form>
         <div class="table">   <table border = ".5" width = "100%" bgcolor="green">
                 <th>ID</th>

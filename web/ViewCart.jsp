@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="BusinessObjects.Cart"%>
 <%@page import="BusinessObjects.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,17 +40,16 @@
                 <ul>
                      <li><a href="GuestHomePage.jsp">All Products</a></li>
                      <li><a href="GuestDecoration.jsp">Decor</a></li>
-                     <li><a href="Electronic.jsp">Electronics</a></li>
-                     <li><a href="Furniture.jsp">Furniture</a></li>
-                     <li><a href="PaperWriting.jsp">Paper & Writing</a></li>
+                     <li><a href="GuestElectronic.jsp">Electronics</a></li>
+                     <li><a href="GuestFurniture.jsp">Furniture</a></li>
+                     <li><a href="GuestPaperWriting.jsp">Paper & Writing</a></li>
                 </ul>
             </div>
         
             
             <div class="bottom">
                 <h2 align="center">Current Cart</h2>
-             
-                </table>
+            
             </div>
         </div>
     </body>
